@@ -17,9 +17,11 @@ bool dfsHasCycle(int node, vector<vector<int>>& graph, vector<Color>& colors) {
 
         if (colors[neighbor] == GRAY) {
             return true;
-        } else if (colors[neighbor] == WHITE && dfsHasCycle(neighbor, graph, colors)) {
-            return true;
+        } else if (colors[neighbor] == WHITE) {
+            if (dfsHasCycle(neighbor, graph, colors)) {
+                return true;
         }
+}
     }
 
     colors[node] = BLACK;
